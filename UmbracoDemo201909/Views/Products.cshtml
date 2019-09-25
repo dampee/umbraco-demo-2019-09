@@ -1,4 +1,5 @@
 ﻿@inherits UmbracoViewPage<Umbraco.Web.PublishedModels.Products>
+@using Umbraco.Web.Models
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "master.cshtml";
@@ -23,7 +24,7 @@
             {
                 foreach (Product product in Model.FeaturedProducts)
                 {
-                    <a href="@product.Url" class="product-grid__item" style="background-image: url('@product.Photos.GetCropUrl(width:200)')">
+                    <a href="@product.Url" class="product-grid__item" style="background-image: url('@product.Photos.GetCropUrl(width:400, height:300, imageCropMode: ImageCropMode.Crop )')">
                         <div class="product-grid__item__overlay">
                             <div class="product-grid__item__name">@product.ProductName</div>
                             <div class="product-grid__item__price">@Model.DefaultCurrency @product.Price.ToString("F")</div>
